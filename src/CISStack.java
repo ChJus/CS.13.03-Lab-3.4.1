@@ -1,22 +1,43 @@
 import java.util.LinkedList;
 
 public class CISStack {
+  // Linked list property.
+  private LinkedList<Object> list;
 
-    // Linked list property.
+  // Constructor.
+  public CISStack() {
+    this.list = new LinkedList<>();
+  }
 
-    // Size property.
+  // Push. This method pushes a value onto the top of the stack.
+  public void push(Object element) {
+    list.addLast(element);
+  }
 
-    // Constructor.
+  // Pop. This method pops a value from the top of the stack.
+  public Object pop() {
+    return list.removeLast();
+  }
 
-    // Push. This method pushes a value onto the top of the stack.
+  // isEmpty. Returns a boolean indicating whether the linked list is empty.
+  public boolean isEmpty() {
+    return list.isEmpty();
+  }
 
-    // Pop. This method pops a value from the top of the stack.
+  // size. Returns the size of the queue.
+  public int size() {
+    return list.size();
+  }
 
-    // isEmpty. Returns a boolean indicating whether the linked list is empty.
-
-    // size. Returns the size of the queue.
-
-    // toString. Returns a description of the queue in, for example, the following format:
-    // CISStack{stack=[7, 11], size=2}
-
+  // toString. Returns a description of the queue in, for example, the following format:
+  // CISStack{stack=[7, 11], size=2}
+  @Override
+  public String toString() {
+    String result = "CISStack{stack=[";
+    for (int i = 0; i < this.size(); i++) {
+      result += list.get(i) + (i == size() - 1 ? "" : ", ");
+    }
+    result += "], size=" + size() + "}";
+    return result;
+  }
 }
