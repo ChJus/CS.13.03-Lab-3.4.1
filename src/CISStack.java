@@ -16,6 +16,7 @@ public class CISStack {
 
   // Pop. This method pops a value from the top of the stack.
   public Object pop() {
+    if (isEmpty()) return null;
     return list.removeLast();
   }
 
